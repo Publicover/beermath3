@@ -70,7 +70,36 @@
       #    </p>
       #  <% end %>
 
-10.
+10. generate beers model
+
+  rails generate model Beer name:string brewer:string price:integer ounce:integer calorie:integer rating:integer
+
+11. migrate info to database
+
+  rake db:migrate
+
+12. add code that lets you save info in the controller, including strong params
+
+        def new
+        end
+
+        def create
+          @beer = Beer.new(article_params)
+
+          @beer.save
+          redirect_to @beer
+        end
+
+        private
+          def article_params
+            params.require(:beer).permit(:name, :brewer, :price, :ounce, :calorie, :rating)
+          end
+
+13. add show action to controller
+
+          def show
+            @beer = Beer.find(params[:id])
+          end
 
 
 
