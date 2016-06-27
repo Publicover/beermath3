@@ -35,10 +35,42 @@
 
    $ rails generate controller dashboards index
 
-7. 
+7. set resources and root route
+   #app/config/routes.rb
 
+         Rails.application.routes.draw do
+           resources :beers
+           get 'dashboards/index'
+           root 'dashboards#index'
+         end
 
+8. generate beers controller
+   #need actions
 
+   rails generate controller beers new create
+   #or just rails generate controller
+    #with new HTML files for each action
+      #e.g. app/views/beers/new.html.erb
+
+9. use form_for in new
+
+      #  <%= form_for :article do |f| %>
+      #    <p>
+      #      <%= f.label :title %><br>
+      #      <%= f.text_field :title %>
+      #    </p>
+
+      #    <p>
+      #      <%= f.label :text %><br>
+      #      <%= f.text_area :text %>
+      #    </p>
+
+      #    <p>
+      #      <%= f.submit %>
+      #    </p>
+      #  <% end %>
+
+10.
 
 
 
